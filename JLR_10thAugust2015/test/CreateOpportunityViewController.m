@@ -6,12 +6,20 @@
 #import "MBProgressHUD.h"
 
 @interface CreateOpportunityViewController ()
+{
 
+    
+    NSMutableArray *_lobarray,*_pplarrayjaguar,*_pplarraylandrover,*_ftypearray,*_ftypeproductid,*_xetypearray,*_xetypeproductid,*_xftypearray,*_xftypeproductid,*_xjtypearray,*_xjtypeproductid,*_xktypearray,*_xktypeproductid,*_discoverytypearray,*_discoveryproductid,*_freelandertypearray,*_freelanderproductid,*_autobiographytypearray,*_autobiographyproductid,*_evoquetypearray,*_evoqueproductid,*_sporttypearray,*_sporttypeproductid,*_voguetypearray,*_voguetypeproductid;
+
+    NSString *lobselectflag,*pplselectflag;
+    
+}
 @end
 
 @implementation CreateOpportunityViewController
 
 UIAlertView *alert;
+
 
 NSPredicate *emailTest;
 NSString *emailRegEx;
@@ -19,7 +27,95 @@ NSPredicate *mobileNumberPred;
 NSString *mobileNumberPattern;
 
 UIActionSheet *actionSheet;
+
+
+
+
+
+
 - (void)viewDidLoad {
+    
+    
+    _lobarray=[[NSMutableArray alloc]initWithObjects:@"Jaguar",@"Land Rover", nil];
+    
+    
+    
+    //jaguar
+    
+    
+    
+    _pplarrayjaguar=[[NSMutableArray alloc]initWithObjects:@"F-Type",@"XE",@"XF",@"XJ",@"XKR", nil];
+    
+    _ftypearray=[[NSMutableArray alloc]initWithObjects:@"3.0L S/C Convertible",@"3.0L S/C Coupe",@"5.0L S/C Convertible",@"5.0L S/C Coupe", nil];
+    
+    _ftypeproductid=[[NSMutableArray alloc]initWithObjects:@"5000214079",@"5000226707",@"5000226090",@"5000226703", nil];
+    
+    
+    _xetypearray=[[NSMutableArray alloc]initWithObjects:@"2.0L Diesel Portfolio",@"2.0L Diesel Pure", nil];
+    
+    _xetypeproductid=[[NSMutableArray alloc]initWithObjects:@"5000264928",@"5000264926", nil];
+    
+    
+    
+    _xftypearray=[[NSMutableArray alloc]initWithObjects:@"2.0L Petrol Luxury",@"2.2L Diesel  Aero Sport",@"2.2L Diesel Executive",@"2.2L Diesel Luxury",@"3.0L Diesel Portfolio",@"3.0L Diesel Premium Luxury",@"5.0L Portfolio",@"5.0L Supercharge R",nil];
+    
+    _xftypeproductid=[[NSMutableArray alloc]initWithObjects:@"5000214047",@"5000264746",@"5000259967",@"5000214081",@"5000214057",@"5000214056",@"5000131827",@"5000214074",nil];
+    
+    
+    _xjtypearray=[[NSMutableArray alloc]initWithObjects:@"2.0L Petrol Luxury LWB",@"2.0L Petrol Portfolio",@"2.0L Petrol Portfolio LWB",@"2.0L Petrol Premium Luxury LWB",@"3.0L Diesel Luxury LWB",@"3.0L Diesel Portfolio LWB",@"3.0L Diesel Premium Luxury LWB",@"3.0L Diesel Ultimate LWB",@"3.0L Petrol Portfolio LWB",@"5.0L Autobiography LWB",@"5.0L Portfolio LWB",@"5.0L Supersport LWB",@"5.0L Ultimate LWB",nil];
+    
+    _xjtypeproductid=[[NSMutableArray alloc]initWithObjects:@"5000214065",@"5000242046",@"5000214069",@"5000214067",@"5000214054",@"5000214052",@"5000214048",@"5000176382",@"5000214058",@"5000250020",@"5000128415",@"5000214075",@"5000176400",nil];
+    
+    
+    
+    _xktypearray=[[NSMutableArray alloc]initWithObjects:@"5.0L Convertible",@"5.0L Coupe", nil];
+    
+    _xktypeproductid=[[NSMutableArray alloc]initWithObjects:@"5000135107",@"5000134863", nil];
+    
+    
+    _pplarraylandrover=[[NSMutableArray alloc]initWithObjects:@"Discovery",@"Freelander",@"Range Rover Autobiography",@"Range Rover Evoque",@"Range Rover Sport",@"Range Rover Vogue",nil];
+    
+    
+    
+    _discoverytypearray=[[NSMutableArray alloc]initWithObjects:@"2.7L Diesel HSE",@"3.0L Diesel SDV6 HSE",@"3.0L Diesel SDV6 S",@"3.0L Diesel SDV6 SE",@"3.0L Diesel TDV6 HSE",@"3.0L Petrol S/C SE",nil];
+    
+    _discoveryproductid=[[NSMutableArray alloc]initWithObjects:@"5000077190",@"5000203780",@"5000196608",@"5000203782",@"5000091737",@"5000196622", nil];
+    
+    
+    _freelandertypearray=[[NSMutableArray alloc]initWithObjects:@"2.2L Diesel HSE",@"2.2L Diesel S",@"2.2L Diesel SE", nil];
+    
+    _freelanderproductid=[[NSMutableArray alloc]initWithObjects:@"5000137088",@"5000175049",@"5000137087", nil];
+    
+    
+    _autobiographytypearray=[[NSMutableArray alloc]initWithObjects:@"4.4L Diesel Autobiography",@"5.0L Petrol Autobiography", nil];
+    
+    _autobiographyproductid=[[NSMutableArray alloc]initWithObjects:@"5000221368",@"5000203778", nil];
+    
+    
+    _evoquetypearray=[[NSMutableArray alloc]initWithObjects:@"2.0L Petrol Si4 Dynamic",@"2.0L Petrol Si4 Dynamic Coupe",@"2.0L Petrol Si4 Prestige",@"2.0L Petrol Si4 Pure",@"2.0L Petrol Si4 Pure Coupe",@"2.2L Diesel SD4 Dynamic",@"2.2L Diesel SD4 Prestige",@"2.2L Diesel SD4 Pure", nil];
+    
+    _evoqueproductid=[[NSMutableArray alloc]initWithObjects:@"5000183099",@"5000129181",@"5000183100",@"5000198745",@"5000129179",@"5000183112",@"5000183113",@"5000183111",nil];
+    
+    
+    _sporttypearray=[[NSMutableArray alloc]initWithObjects:@"2.0L Petrol Si4 HSE",@"2.2L Diesel SD4 HSE",@"2.2L Diesel TD4 HSE",@"3.0L Diesel HSE",@"3.0L Diesel SDV6 Autobiography",@"3.0L Diesel SDV6 HSE Sport",@"3.0L Diesel SDV6 S Sport",@"3.0L Diesel SDV6 SE Sport",@"3.0L Diesel SE Sport",@"3.0L Petrol S/C HSE Sport",@"3.0L Petrol S/C SE Sport",@"3.6L Diesel HSE Sport",@"5.0L Petrol S/C Autobiography", nil];
+    
+    _sporttypeproductid=[[NSMutableArray alloc]initWithObjects:@"5000249481",@"5000249479",@"5000249476",@"5000130760",@"5000220189",@"5000220185",@"5000220186",@"5000220187",@"5000132112",@"5000220191",@"5000220190",@"5000077723",@"5000220183", nil];
+    
+    
+    _voguetypearray=[[NSMutableArray alloc]initWithObjects:@"3.0L Diesel TDV6 HSE Vogue",@"3.0L Diesel TDV6 Vogue",@"3.0L Petrol S/C Vogue",@"3.6L Diesel SE Vogue",@"4.4L Diesel SDV8 SE Vogue",@"4.4L Diesel SDV8 SE Vogue", nil];
+    
+    _voguetypeproductid=[[NSMutableArray alloc]initWithObjects:@"5000183106",@"5000183107",@"5000223237",@"5000081078",@"5000219203", nil];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -168,6 +264,46 @@ UIActionSheet *actionSheet;
 }
 
 - (IBAction)btnppl:(id)sender {
+    
+    
+    
+    actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                              delegate:self
+                                     cancelButtonTitle:nil
+                                destructiveButtonTitle:nil
+                                     otherButtonTitles:nil];
+    if ([lobselectflag isEqualToString:@"jaguar"]) {
+      
+        for (NSString *title in _pplarrayjaguar) {
+            [actionSheet addButtonWithTitle:title];
+        }
+        
+    }
+    else{
+    
+    for (NSString *title in _pplarraylandrover) {
+        [actionSheet addButtonWithTitle:title];
+    }
+        
+    }
+    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+    
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        [actionSheet showFromRect:[(UITextField *)sender frame] inView:self.createLeadview animated:YES];
+        actionSheet.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
+    }
+    else{
+        [actionSheet showInView:self.view];
+    }
+    actionSheet.tag = 4;
+    
+    
+    
+    
+    
 }
 
 - (IBAction)btnapp:(id)sender{
@@ -178,9 +314,170 @@ UIActionSheet *actionSheet;
 
 - (IBAction)btnlob:(id)sender{
     
+  
+    
+  
+    actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                              delegate:self
+                                     cancelButtonTitle:nil
+                                destructiveButtonTitle:nil
+                                     otherButtonTitles:nil];
+    // ObjC Fast Enumeration
+    for (NSString *title in _lobarray) {
+        [actionSheet addButtonWithTitle:title];
+    }
+    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+    
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        [actionSheet showFromRect:[(UITextField *)sender frame] inView:self.createLeadview animated:YES];
+        actionSheet.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
+    }
+    else{
+        [actionSheet showInView:self.view];
+    }
+    actionSheet.tag = 3;
+    
+   
+    
 }
 
 - (IBAction)btnpl:(id)sender{
+    
+    
+    
+    
+    actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                              delegate:self
+                                     cancelButtonTitle:nil
+                                destructiveButtonTitle:nil
+     
+                   
+                                otherButtonTitles:nil];
+    
+    
+    //F-Type",@"XE",@"XF",@"XJ",@"XKR",
+    
+    if ([lobselectflag isEqualToString:@"jaguar"]) {
+
+    
+    if ([pplselectflag isEqualToString:@"F-Type"]) {
+        
+        for (NSString *title in _ftypearray) {
+            [actionSheet addButtonWithTitle:title];
+        }
+        
+    }
+    
+   else if ([pplselectflag isEqualToString:@"XE"]) {
+        
+        for (NSString *title in _xetypearray) {
+            [actionSheet addButtonWithTitle:title];
+        }
+        
+    }
+   else if ([pplselectflag isEqualToString:@"XF"]) {
+       
+       for (NSString *title in _xftypearray) {
+           [actionSheet addButtonWithTitle:title];
+       }
+       
+   }
+   else if ([pplselectflag isEqualToString:@"XJ"]) {
+       
+       for (NSString *title in _xjtypearray) {
+           [actionSheet addButtonWithTitle:title];
+       }
+       
+   }
+   else if ([pplselectflag isEqualToString:@"XKR"]) {
+       
+       for (NSString *title in _xktypearray) {
+           [actionSheet addButtonWithTitle:title];
+       }
+       
+   }
+        
+        
+   
+    }
+    
+    
+    else{
+        
+        // _pplarraylandrover=[[NSMutableArray alloc]initWithObjects:@"Discovery",@"Freelander",@"Range Rover Autobiography",@"Range Rover Evoque",@"Range Rover Sport",@"Range Rover Vogue",nil];
+        
+        
+        
+        if ([pplselectflag isEqualToString:@"Discovery"]) {
+            
+            for (NSString *title in _discoverytypearray) {
+                [actionSheet addButtonWithTitle:title];
+            }
+            
+        }
+        
+        else if ([pplselectflag isEqualToString:@"Freelander"]) {
+            
+            for (NSString *title in _freelandertypearray) {
+                [actionSheet addButtonWithTitle:title];
+            }
+            
+        }
+        else if ([pplselectflag isEqualToString:@"Range Rover Autobiography"]) {
+            
+            for (NSString *title in _autobiographytypearray) {
+                [actionSheet addButtonWithTitle:title];
+            }
+            
+        }
+        else if ([pplselectflag isEqualToString:@"Range Rover Evoque"]) {
+            
+            for (NSString *title in _evoquetypearray) {
+                [actionSheet addButtonWithTitle:title];
+            }
+            
+        }
+        else if ([pplselectflag isEqualToString:@"Range Rover Sport"]) {
+            
+            for (NSString *title in _sporttypearray) {
+                [actionSheet addButtonWithTitle:title];
+            }
+            
+        }
+        else if ([pplselectflag isEqualToString:@"Range Rover Vogue"]) {
+            
+            for (NSString *title in _voguetypearray) {
+                [actionSheet addButtonWithTitle:title];
+            }
+            
+        }
+
+    
+    }
+    
+    
+    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+    
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        [actionSheet showFromRect:[(UITextField *)sender frame] inView:self.createLeadview animated:YES];
+        actionSheet.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
+    }
+    else{
+        [actionSheet showInView:self.view];
+    }
+    actionSheet.tag = 5;
+    
+    
+    
+    
+    
+    
     
 }
 
@@ -785,24 +1082,160 @@ actionSheet = [[UIActionSheet alloc] initWithTitle:nil
 
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    if(self.txtfldAccountType){
+    NSLog(@"button click ....%ld",(long)buttonIndex);
+    //if
+    if(self.txtfldlob){
+        switch (popup.tag) {
+            case 3:
+                if(buttonIndex == actionSheet.cancelButtonIndex)
+                {    return;
+                }else{
+                    NSLog(@"Button index %ld",(long)buttonIndex);
+                    self.txtfldlob.text = NSLocalizedString([_lobarray objectAtIndex:buttonIndex],@"");
+                }
+                
+                if (buttonIndex==0) {
+                    
+             
+                  lobselectflag = @"jaguar";
+                    
+                }
+                else {
+                   
+                 
+                    
+                    lobselectflag = @"land rover";
+                    
+                
+                }
+                self.txtfldppl.text=@"";
+                self.txtfldpl.text=@"";
+                
+           
+        }
+    }
+    
+    if(self.txtfldppl){
         switch (popup.tag) {
             case 4:
                 if(buttonIndex == actionSheet.cancelButtonIndex)
-                {
-                    return;
-                }
-                else{
-                    
+                {    return;
+                }else{
                     NSLog(@"Button index %ld",(long)buttonIndex);
-                   self.txtfldAccountType.text = NSLocalizedString([self.accountstatus objectAtIndex:buttonIndex],@"");
+                    
+                    if ([lobselectflag isEqualToString:@"jaguar"]) {
+                        self.txtfldppl.text = NSLocalizedString([_pplarrayjaguar objectAtIndex:buttonIndex],@"");
+                        
+                        pplselectflag=self.txtfldppl.text;
+                        
+                        NSLog(@"ppl value %@",pplselectflag);
+                        
+                    }
+                    else{
+                    
+                    self.txtfldppl.text = NSLocalizedString([_pplarraylandrover objectAtIndex:buttonIndex],@"");
+                        
+                          pplselectflag=self.txtfldppl.text;                    }
                 }
+                
+          self.txtfldpl.text=@"";
                 
         }
     }
     
     
+    if(self.txtfldpl){
+        switch (popup.tag) {
+            case 5:
+                if(buttonIndex == actionSheet.cancelButtonIndex)
+                {    return;
+                }else{
+                    NSLog(@"Button index %ld",(long)buttonIndex);
+                    
+                    if ([lobselectflag isEqualToString:@"jaguar"]) {
+                        
+                     
+                            if ([pplselectflag isEqualToString:@"F-Type"]) {
+                                
+                                self.txtfldpl.text = NSLocalizedString([_ftypearray objectAtIndex:buttonIndex],@"");
+                                
+                            
+                                }
+                                
+                          
+                            
+                            else if ([pplselectflag isEqualToString:@"XE"]) {
+                                
+                               self.txtfldpl.text = NSLocalizedString([_xetypearray objectAtIndex:buttonIndex],@"");
+                                
+                            }
+                            else if ([pplselectflag isEqualToString:@"XF"]) {
+                                
+                               self.txtfldpl.text = NSLocalizedString([_xftypearray objectAtIndex:buttonIndex],@"");
+                                
+                            }
+                            else if ([pplselectflag isEqualToString:@"XJ"]) {
+                                
+                                self.txtfldpl.text = NSLocalizedString([_xjtypearray objectAtIndex:buttonIndex],@"");
+                                
+                            }
+                            else if ([pplselectflag isEqualToString:@"XKR"]) {
+                                
+                                 self.txtfldpl.text = NSLocalizedString([_xktypearray objectAtIndex:buttonIndex],@"");
+                                
+                            }
+                            
+                            
+                            
+                        }
+                    else{
+                        
+                        
+                        if ([pplselectflag isEqualToString:@"Discovery"]) {
+                            
+                                        self.txtfldpl.text = NSLocalizedString([_discoverytypearray objectAtIndex:buttonIndex],@"");
+                            
+                        }
+                        
+                        else if ([pplselectflag isEqualToString:@"Freelander"]) {
+                            
+                                          self.txtfldpl.text = NSLocalizedString([_freelandertypearray objectAtIndex:buttonIndex],@"");
+                            
+                        }
+                        else if ([pplselectflag isEqualToString:@"Range Rover Autobiography"]) {
+                            
+                             self.txtfldpl.text = NSLocalizedString([_autobiographytypearray objectAtIndex:buttonIndex],@"");
+                            
+                        }
+                        else if ([pplselectflag isEqualToString:@"Range Rover Evoque"]) {
+                            
+                                          self.txtfldpl.text = NSLocalizedString([_evoquetypearray objectAtIndex:buttonIndex],@"");
+                            
+                        }
+                        else if ([pplselectflag isEqualToString:@"Range Rover Sport"]) {
+                            
+                                          self.txtfldpl.text = NSLocalizedString([_sporttypearray objectAtIndex:buttonIndex],@"");
+                            
+                        }
+                        else if ([pplselectflag isEqualToString:@"Range Rover Vogue"]) {
+                            
+                                          self.txtfldpl.text = NSLocalizedString([_voguetypearray objectAtIndex:buttonIndex],@"");
+                            
+                        }
+
+                }
+                        
+                        
+                   
+                }
+                
+                
+                
+        }
+    }
+    
 }
+
 
 
 @end

@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>76E060A0-1531-46FE-BE66-7BFBDFD094E0</string>
 	<key>IDESourceControlProjectName</key>
-	<string>JLR</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C063078B7BB32EF68722A70268335A804918F202</key>
 		<string>https://github.com/Rishikeshpange/JLR10thAugust.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>JLR_10thAugust2015/JLR.xcodeproj</string>
+	<string>JLR_10thAugust2015/JLR.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C063078B7BB32EF68722A70268335A804918F202</key>

@@ -94,9 +94,7 @@ GlobalDetails *userDetailsVal_;
 - (IBAction)createaccountaction:(id)sender;
 
 
-@property (weak, nonatomic) IBOutlet UIButton *btnskip;
 
-- (IBAction)skipaction:(id)sender;
 
 
 
@@ -177,5 +175,22 @@ GlobalDetails *userDetailsVal_;
 
 
 @property(strong,nonatomic)NSMutableArray *accountstatus;
+
+
+
+///////switch navigation buttons for create lead
+
+- (IBAction)createaccounticonbutton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *createaccounticonoutlet;
+
+@property (weak, nonatomic) IBOutlet UIButton *createleadiconnavigation;
+
+
+- (IBAction)createleadbuttonnavigation:(id)sender;
+
+
+
+
 
 @end

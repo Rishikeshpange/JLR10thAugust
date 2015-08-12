@@ -9,7 +9,7 @@
 {
 
     
-    NSMutableArray *_lobarray,*_pplarrayjaguar,*_pplarraylandrover,*_ftypearray,*_ftypeproductid,*_xetypearray,*_xetypeproductid,*_xftypearray,*_xftypeproductid,*_xjtypearray,*_xjtypeproductid,*_xktypearray,*_xktypeproductid,*_discoverytypearray,*_discoveryproductid,*_freelandertypearray,*_freelanderproductid,*_autobiographytypearray,*_autobiographyproductid,*_evoquetypearray,*_evoqueproductid,*_sporttypearray,*_sporttypeproductid,*_voguetypearray,*_voguetypeproductid;
+    NSMutableArray *_lobarray,*_pplarrayjaguar,*_pplarraylandrover,*_ftypearray,*_ftypeproductid,*_xetypearray,*_xetypeproductid,*_xftypearray,*_xftypeproductid,*_xjtypearray,*_xjtypeproductid,*_xktypearray,*_xktypeproductid,*_discoverytypearray,*_discoveryproductid,*_freelandertypearray,*_freelanderproductid,*_autobiographytypearray,*_autobiographyproductid,*_evoquetypearray,*_evoqueproductid,*_sporttypearray,*_sporttypeproductid,*_voguetypearray,*_voguetypeproductid,*_applicationarray,*_sourceofcontact,*_customertype;
 
     NSString *lobselectflag,*pplselectflag;
     
@@ -36,14 +36,18 @@ UIActionSheet *actionSheet;
 - (void)viewDidLoad {
     
     
+    _applicationarray=[[NSMutableArray alloc]initWithObjects:@"Corporate",@"Personal", nil];
+    
+    
+    _sourceofcontact=[[NSMutableArray alloc]initWithObjects:@"Advertisement",@"Cold Call",@"DMA/DSA",@"Event",@"VEE24",@"Walk-In",@"CBEEC- REFERRAL",@"Phone",@"Internet",@"Email",@"Branch",@"Call Center",@"Cold Tele Call",@"Cold Test Drive",@"Corporate",@"Direct",@"Existing customer",@"Indirect",@"Other",@"Referral",@"Tele In",@"Weblead", nil];
+    
+    
+    
+        _customertype=[[NSMutableArray alloc]initWithObjects:@"Additional (Non-JLR)",@"Exchange",@"First Time",@"Return",@"Return(JLR)", nil];
+    
+    
     _lobarray=[[NSMutableArray alloc]initWithObjects:@"Jaguar",@"Land Rover", nil];
-    
-    
-    
-    //jaguar
-    
-    
-    
+
     _pplarrayjaguar=[[NSMutableArray alloc]initWithObjects:@"F-Type",@"XE",@"XF",@"XJ",@"XKR", nil];
     
     _ftypearray=[[NSMutableArray alloc]initWithObjects:@"3.0L S/C Convertible",@"3.0L S/C Coupe",@"5.0L S/C Convertible",@"5.0L S/C Coupe", nil];
@@ -113,9 +117,7 @@ UIActionSheet *actionSheet;
     
     
     
-    
-    
-    
+    self.createaccounticonoutlet.hidden=true;
     
     
     
@@ -174,6 +176,7 @@ UIActionSheet *actionSheet;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide) name:UIKeyboardWillHideNotification object:nil];
     
     
+    self.createleadiconnavigation.hidden=true;
 }
 
 
@@ -258,9 +261,39 @@ UIActionSheet *actionSheet;
 
 
 - (IBAction)btncustomerType:(id)sender {
+    
+    
+    actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                              delegate:self
+                                     cancelButtonTitle:nil
+                                destructiveButtonTitle:nil
+                                     otherButtonTitles:nil];
+    // ObjC Fast Enumeration
+    for (NSString *title in _customertype) {
+        [actionSheet addButtonWithTitle:title];
+    }
+    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+    
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        [actionSheet showFromRect:[(UITextField *)sender frame] inView:self.createLeadview animated:YES];
+        actionSheet.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
+    }
+    else{
+        [actionSheet showInView:self.view];
+    }
+    actionSheet.tag = 8;
+    
+    
+    
 }
 
 - (IBAction)btnfinancierName:(id)sender{
+    
+    
+    
 }
 
 - (IBAction)btnppl:(id)sender {
@@ -307,9 +340,63 @@ UIActionSheet *actionSheet;
 }
 
 - (IBAction)btnapp:(id)sender{
+    
+    
+    actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                              delegate:self
+                                     cancelButtonTitle:nil
+                                destructiveButtonTitle:nil
+                                     otherButtonTitles:nil];
+    // ObjC Fast Enumeration
+    for (NSString *title in _applicationarray) {
+        [actionSheet addButtonWithTitle:title];
+    }
+    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+    
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        [actionSheet showFromRect:[(UITextField *)sender frame] inView:self.createLeadview animated:YES];
+        actionSheet.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
+    }
+    else{
+        [actionSheet showInView:self.view];
+    }
+    actionSheet.tag = 6;
+    
+    
 }
 
 - (IBAction)btnsource:(id)sender {
+    
+    
+    actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                              delegate:self
+                                     cancelButtonTitle:nil
+                                destructiveButtonTitle:nil
+                                     otherButtonTitles:nil];
+    // ObjC Fast Enumeration
+    for (NSString *title in _sourceofcontact) {
+        [actionSheet addButtonWithTitle:title];
+    }
+    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+    
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        [actionSheet showFromRect:[(UITextField *)sender frame] inView:self.createLeadview animated:YES];
+        actionSheet.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
+    }
+    else{
+        [actionSheet showInView:self.view];
+    }
+    actionSheet.tag = 7;
+    
+  
+    
+    
 }
 
 - (IBAction)btnlob:(id)sender{
@@ -549,27 +636,14 @@ UIActionSheet *actionSheet;
         
     }
     
+    ///unfill_space@2x.png
+    
     
     
 
     
 }
-- (IBAction)skipaction:(id)sender {
-    
-    
-    [self.Ceatecontactview setHidden:YES];
-    [self.createaccount setHidden:YES];
-    [self.createLeadview setHidden:NO];
-    
-    
-    
-    [self.accountleadlinkerimage setImage:[UIImage imageNamed: @"filled_space.png"]];
-    
-    [self.createleadimage setImage:[UIImage imageNamed: @"create_lead2.png"]];
-    
-    [self.createaccountImage setImage:[UIImage imageNamed:@"add_account1.png"]];
-    
-}
+
 - (IBAction)createbuttonaction:(id)sender {
     
 
@@ -781,6 +855,8 @@ UIActionSheet *actionSheet;
                 
                 [self.createaccountImage setImage:[UIImage imageNamed: @"add_account2.png"]];
                 
+                self.createaccounticonoutlet.hidden=true;
+                self.createleadiconnavigation.hidden=false;
                 
                 
             }
@@ -915,18 +991,8 @@ UIActionSheet *actionSheet;
     
     
     NSURL *theurl = [NSURL URLWithString:@"http://121.244.87.89:7777/eai_enu/start.swe?SWEExtSource=WebService&WSSOAP=1"];
-    // NSURL *theurl = [NSURL URLWithString:@"http://121.244.87.89:7777/eai_enu/start.swe?SWEExtSource=WebService&WSSOAP=1"];
+  
     
-    
-    //NSURL * theurl = [NSURL URLWithString:@"http://1:7777/eai_enu/start.swe?SWEExtSource=WebService&WSSOAP=1"];
-    
-    
-    
-    // NSURL * theurl = [NSURL URLWithString:@"https://dms-india.jlrext.com/eai_enu/start.swe?SWEExtSource=WebService&WSSOAP=1"];
-    //
-    //    // NSURL * theurl = [NSURL URLWithString:@"http://121.244.87.75:7777/eai_enu/start.swe?SWEExtSource=WebService&SWEExtCmd=Execute&UserName=DaTa_ADMIN&Password=A1S2U3S4"];
-    //
-    //    NSURL *theurl = [NSURL URLWithString:@"http://121.244.87.75:7777/eai_enu/start.swe?SWEExtSource=WebService&WSSOAP=1"];//Abhishek
     
     
     NSLog(@"URL IS %@",theurl);
@@ -996,6 +1062,10 @@ UIActionSheet *actionSheet;
                     [self.createaccount setHidden:YES];
                     [self.createLeadview setHidden:NO];
                 
+                self.createaccounticonoutlet.hidden=true;
+                self.createleadiconnavigation.hidden=true;
+                
+                
                 
                     [self.accountleadlinkerimage setImage:[UIImage imageNamed: @"filled_space.png"]];
                 
@@ -1031,15 +1101,6 @@ UIActionSheet *actionSheet;
     
     
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1234,8 +1295,101 @@ actionSheet = [[UIActionSheet alloc] initWithTitle:nil
         }
     }
     
+    if(self.txtfldapp){
+        switch (popup.tag) {
+            case 6:
+                if(buttonIndex == actionSheet.cancelButtonIndex)
+                {    return;
+                }else{
+                    NSLog(@"Button index %ld",(long)buttonIndex);
+                    self.txtfldapp.text = NSLocalizedString([_applicationarray objectAtIndex:buttonIndex],@"");
+                }
+                
+               
+                
+                
+                
+        }
+    }
+  
+    if(self.txtfldsource){
+        switch (popup.tag) {
+            case 7:
+                if(buttonIndex == actionSheet.cancelButtonIndex)
+                {    return;
+                }else{
+                    NSLog(@"Button index %ld",(long)buttonIndex);
+                    self.txtfldsource.text = NSLocalizedString([_sourceofcontact objectAtIndex:buttonIndex],@"");
+                }
+                
+                
+                
+                
+                
+        }
+    }
+    
+    
+    if(self.txtfldcustomerType){
+        switch (popup.tag) {
+            case 8:
+                if(buttonIndex == actionSheet.cancelButtonIndex)
+                {    return;
+                }else{
+                    NSLog(@"Button index %ld",(long)buttonIndex);
+                    self.txtfldcustomerType.text = NSLocalizedString([_customertype objectAtIndex:buttonIndex],@"");
+                }
+                
+                
+                
+                
+                
+        }
+    }
+    
+    
 }
 
 
+- (IBAction)createaccounticonbutton:(id)sender {
+    
+  
+    [self.Ceatecontactview setHidden:YES];
+    [self.createaccount setHidden:NO];
+    [self.createLeadview setHidden:YES];
+    
+    [self.contactaccountLinkerImage setImage:[UIImage imageNamed: @"filled_space.png"]];
+    
+    [self.accountleadlinkerimage setImage:[UIImage imageNamed: @"unfill_space.png"]];
+    
+    [self.createaccountImage setImage:[UIImage imageNamed: @"add_account2.png"]];
+    
+    [self.createleadimage setImage:[UIImage imageNamed:@"create_lead1.png"]];
+    
 
+    
+    //unfill_space@2x.png
+}
+- (IBAction)createleadbuttonnavigation:(id)sender {
+    
+    
+    
+    [self.Ceatecontactview setHidden:YES];
+    [self.createaccount setHidden:YES];
+    [self.createLeadview setHidden:NO];
+    [self.createaccounticonoutlet setHidden:NO];
+    
+    
+    
+    
+    [self.accountleadlinkerimage setImage:[UIImage imageNamed: @"filled_space.png"]];
+    
+    [self.createleadimage setImage:[UIImage imageNamed: @"create_lead2.png"]];
+    
+    [self.createaccountImage setImage:[UIImage imageNamed:@"add_account1.png"]];
+    
+    
+    
+    
+}
 @end

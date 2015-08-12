@@ -15,8 +15,8 @@
     
     NSString *NSurl;
     
-    NSURLConnection *artifactConnection , *authenticationConnection,*countconnection,*createcontactconnection,*createaccountconnection;
-    NSMutableData *artifactData , *authenticationData,*countdata,*createcontactdata,*createaccountdata;
+    NSURLConnection *artifactConnection , *authenticationConnection,*countconnection,*createcontactconnection,*createaccountconnection,*createleadconnection;
+    NSMutableData *artifactData , *authenticationData,*countdata,*createcontactdata,*createaccountdata,*createleaddata;
     
 }
 
